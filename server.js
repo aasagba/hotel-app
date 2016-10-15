@@ -16,9 +16,10 @@ app.get('/hotels', function (req, res) {
         obj = JSON.parse(data)
         // You can now play with your datas
         console.log(JSON.stringify(obj));
+        res.json(obj);
     }
 
-    res.json(data);
+
 });
 
 app.listen(process.env.PORT || 8082);
