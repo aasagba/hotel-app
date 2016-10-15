@@ -16,21 +16,73 @@
             <div class="container text-center">
                 <div class="header">
                     <h1>Hotels</h1>
-                    <div class="search col-sm-6">
+                    <h2 ng-if="resultsCount > 0">{{resultsCount}} hotels found</h2>
+                    <span class="">Sort By</span>
+                    <select style="width:auto" class="form-control" ng-model="sortBy">
+                        <option value="None">-- Select --</option>
+                        <option value="Distance">Distance</option>
+                        <option value="Stars">Stars</option>
+                        <option value="MinCost">MinCost</option>
+                        <option value="TrpRating">TrpRating</option>
+                        <option value="UserRating">UserRating</option>
+                    </select>
+                    <!--<div class="search col-sm-6">
                         <input type="submit" class="corner" value="submit" ng-click="getHotels()">
-                    </div>
+                    </div>-->
                 </div>
             </div>
         </div>
         <div class="container-fluid">
-            <div class="row">
-                <div dir-paginate="hotel in results | itemsPerPage: 10">
-                    {{hotel.Name}}
+            <div class="side col-sm-3">
+                <div class="filter">
+                    <div class="filter-header">
+                        FILTER BY
+                    </div>
+                    <div class="filter-body">
+                        <div class="filter-item">
+                            <div class="filter-item-heading">Star Rating</div>
+                            <div class="filter-item-body">
+                                <label>
+                                    <input id="title-input" type="check" value="5" data-ng-model="sortBy.field"
+                                           name=""><span>5 star</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-            <dir-pagination-controls></dir-pagination-controls>
-        </div>
+            <div class="main col-sm-9">
+                <div class="row">
+                    <div class="hotel-listing clearfix col-sm-10" dir-paginate="hotel in results | itemsPerPage: 10 | orderBy:sortBy">
+                        <img src="{{hotel.ImageUrl}}" class="img-responsive pull-left thumbnail" alt="Image">
+                        <div class="section info">
+                            <div>
+                                <h4 class="hotel-name">{{hotel.Name}}</h4>
+                                <span class="stars">{{hotel.Stars}} stars</span>
+                            </div>
+                            <a class="" href="">{{hotel.Location}}</a> <!-- look at lightbox -->
+                            <div class="user-rating" ng-show="hotel.UserRating>0">
+                                <a href="">
+                                    <span class="rating">{{hotel.UserRating}}</span>
+                                    <span class="user-rating-title">{{hotel.UserRatingTitle}}</span>
+                                    <span class="review-count" ng-if="hotel.UserRatingCount > 1">({{hotel.UserRatingCount}} reviews)</span>
+                                </a>
+                            </div>
+                            <!--<p class="">{{hotel.Distance}}</p>
+                            <p class="">{{hotel.TrpRating}}</p>-->
+                        </div>
+                        <div class="section cost">
+                            <div class="price-label">From</div>
+                            <div class="price">
+                                <p class="">&pound;{{hotel.MinCost}}</p>
+                            </div>
 
+                        </div>
+                    </div>
+                </div>
+                <dir-pagination-controls class="col-sm-10"></dir-pagination-controls>
+            </div>
+        </div>
     </div>
 
     <script src="scripts/jquery/dist/jquery.min.js"></script>
