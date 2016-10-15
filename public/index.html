@@ -11,8 +11,25 @@
 <body>
     <div id="app" ng-controller="AppCtrl">
 
-        <input type="submit" class="corner" value="submit" ng-click="getHotels()">
 
+        <div class="jumbotron">
+            <div class="container text-center">
+                <div class="header">
+                    <h1>Hotels</h1>
+                    <div class="search col-sm-6">
+                        <input type="submit" class="corner" value="submit" ng-click="getHotels()">
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <div class="row">
+                <div dir-paginate="hotel in results | itemsPerPage: 10">
+                    {{hotel.Name}}
+                </div>
+            </div>
+            <dir-pagination-controls></dir-pagination-controls>
+        </div>
 
     </div>
 
@@ -22,5 +39,6 @@
     <script src="scripts/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="scripts/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
     <script src="controllers/controller.js"></script>
+    <script src="scripts/angularUtils-pagination/dirPagination.js"></script>
 </body>
 </html>

@@ -1,4 +1,4 @@
-var myApp = angular.module('myApp',[]);
+var myApp = angular.module('myApp',['angularUtils.directives.dirPagination']);
 
 myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
     console.log("AppCtrl initialised");
@@ -7,7 +7,7 @@ myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
     $scope.getHotels = function () {
         $http.get('/hotels').success(function(response) {
             console.log(response);
-            $scope.results = response;
+            $scope.results = response.Establishments;
         });
     }
 }]);

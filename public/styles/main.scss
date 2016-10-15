@@ -1,0 +1,25 @@
+$primary-color: #01d2bd;
+$secondary-color: black;
+$header-primary: white;
+$header-secondary: #aebac8;
+
+.header {
+  clear: both;
+  left: 50%;
+  top:50%;
+  color:white;
+  text-align: center;
+  h1 {
+    font-size: 30px;
+  }
+  h2 {
+    font-size: 23px;
+    color: $header-secondary;
+    span {
+      color: $primary-color;
+    }
+  }
+  .search-input {
+    margin-top: 20px;
+  }
+}
