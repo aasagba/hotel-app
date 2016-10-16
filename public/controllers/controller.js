@@ -39,7 +39,7 @@ myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
         //console.log("row.Stars: " + row.Stars);
         //console.log(row.Stars == ($scope.ratingVal || ''));
 
-        return ($scope.ratingVal == "" || row.Stars == ($scope.ratingVal || '') ||
-        row.Name == ($scope.query || ''));
+        return (($scope.ratingVal == "" || row.Stars == ($scope.ratingVal || '')) &&
+        ($scope.query == "" || row.Name.includes($scope.query || '')));
     };
 }]);
