@@ -42,23 +42,38 @@
                         <div class="filter-item">
                             <div class="filter-item-heading">Star Rating</div>
                             <div class="filter-item-body">
-                                <label>
-                                    <input id="title-input" type="check" value="5" data-ng-model="sortBy.field"
-                                           name=""><span>5 star</span>
+                                <!--<label>
+                                    <input id="title-input" type="checkbox" value="5" data-ng-model="query"
+                                           name="5" ng-true-value="5"><span>5 star</span>
                                 </label>
+                                <label>
+                                    <input id="title-input2" type="checkbox" value="4" data-ng-model="query"
+                                           name="4" ng-true-value="5"><span>4 star</span>
+                                </label>-->
+
+                                <span class="star-rating">
+                                  <input type="radio" name="rating" value="0" data-ng-model="ratingVal" ng-click="rating = 'No stars'"><i></i>
+                                  <input type="radio" name="rating" value="1" data-ng-model="ratingVal" ng-click="rating = ratingVal + ' stars'"><i></i>
+                                  <input type="radio" name="rating" value="2" data-ng-model="ratingVal" ng-click="rating = ratingVal + ' stars'"><i></i>
+                                  <input type="radio" name="rating" value="3" data-ng-model="ratingVal" ng-click="rating = ratingVal + ' stars'"><i></i>
+                                  <input type="radio" name="rating" value="4" data-ng-model="ratingVal" ng-click="rating = ratingVal + ' stars'"><i></i>
+                                  <input type="radio" name="rating" value="5" data-ng-model="ratingVal" ng-click="rating = ratingVal + ' stars'"><i></i>
+                                </span>
+                                <strong class="choice">{{rating}}</strong>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+            {{query}}
             <div class="main col-sm-9">
                 <div class="row">
-                    <div class="hotel-listing clearfix col-sm-10" dir-paginate="hotel in results | itemsPerPage: 10 | orderBy:sortBy">
+                    <div class="hotel-listing clearfix col-sm-10" dir-paginate="hotel in results | filter:search | orderBy:sortBy | itemsPerPage: 10">
                         <img src="{{hotel.ImageUrl}}" class="img-responsive pull-left thumbnail" alt="Image">
                         <div class="section info">
                             <div>
-                                <h4 class="hotel-name">{{hotel.Name}}</h4>
-                                <span class="stars">{{hotel.Stars}} stars</span>
+                                <h4 id="Name" class="hotel-name">{{hotel.Name}}</h4>
+                                <span id="Stars" class="stars">{{hotel.Stars}} stars</span>
                             </div>
                             <a class="" href="">{{hotel.Location}}</a> <!-- look at lightbox -->
                             <div class="user-rating" ng-show="hotel.UserRating>0">
