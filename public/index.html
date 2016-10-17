@@ -17,10 +17,10 @@
         <div class="jumbotron">
             <div class="container text-center">
                 <div class="header">
-                    <h1>Hotels</h1>
+                    <h1>Hotels in Paris</h1>
                     <h2 ng-if="resultsCount > 0">{{resultsCount}} hotels found</h2>
-                    <span class="">Sort By</span>
-                    <select style="width:auto" class="form-control" ng-model="sortBy">
+                    <span class="sort-label">Sort By</span>
+                    <select style="width:auto" class="form-control sort" ng-model="sortBy">
                         <option value="None">-- Select --</option>
                         <option value="Distance">Distance</option>
                         <option value="Stars">Stars</option>
@@ -44,15 +44,6 @@
                         <div class="filter-item">
                             <div class="filter-item-heading">Star Rating</div>
                             <div class="filter-item-body">
-                                <!--<label>
-                                    <input id="title-input" type="checkbox" value="5" data-ng-model="query"
-                                           name="5" ng-true-value="5"><span>5 star</span>
-                                </label>
-                                <label>
-                                    <input id="title-input2" type="checkbox" value="4" data-ng-model="query"
-                                           name="4" ng-true-value="5"><span>4 star</span>
-                                </label>-->
-                                <!--<i class="fa fa-star" aria-hidden="true"></i>-->
 
                                 <div style="clear:both;float:left">
                                 <span class="star-rating">
@@ -77,7 +68,7 @@
                         <div class="filter-item">
                             <div class="filter-item-heading">Name</div>
                             <div class="filter-item-body">
-                                <input class="" type="text" placeholder="Search for Hotel name" ng-model="query" ng-click="">
+                                <input class="search-name" type="text" placeholder="Search for Hotel name" ng-model="query" ng-click="">
                             </div>
                         </div>
                         <div class="filter-item">
@@ -90,7 +81,7 @@
                             </div>
                         </div>
                         <div class="filter-item" ng-show="sliderVisible">
-                            <div class="filter-item-heading">Min Cost</div>
+                            <div class="filter-item-heading">Minimum Price</div>
                             <div class="filter-item-body">
                                 <rzslider rz-slider-model="minCostSlider.value" rz-slider-options="minCostSlider.options"></rzslider>
                             </div>
@@ -99,17 +90,16 @@
                     </div>
                 </div>
             </div>
-            {{query}}
             <div class="main col-sm-9">
                 <div class="row">
-                    <div class="hotel-listing clearfix col-sm-10" dir-paginate="hotel in results | filter:search | orderBy:sortBy | itemsPerPage: 10">
+                    <div class="hotel-listing clearfix " dir-paginate="hotel in results | filter:search | orderBy:sortBy | itemsPerPage: 10">
                         <img src="{{hotel.ImageUrl}}" class="img-responsive pull-left thumbnail" alt="Image">
                         <div class="section info">
                             <div>
-                                <h4 id="Name" class="hotel-name">{{hotel.Name}}</h4>
-                                <span id="Stars" class="stars">{{hotel.Stars}} stars</span>
+                                <h4 id="Name" class="hotel-name">{{hotel.Name}}
+                                    <li ng-repeat="s in starRatings" class="fa fa-star filled" ng-if="hotel.Stars-1 >= $index"></li></h4>
                             </div>
-                            <a class="" href="">{{hotel.Location}}</a> <!-- look at lightbox -->
+                            <a class="location" href="">{{hotel.Location}}</a> <!-- look at lightbox -->
                             <div class="user-rating" ng-show="hotel.UserRating>0">
                                 <a href="">
                                     <span class="rating">{{hotel.UserRating}}</span>

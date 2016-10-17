@@ -8,6 +8,7 @@ myApp.controller('AppCtrl', ['$scope', '$http', '$timeout', function($scope, $ht
     $scope.query = "";
     $scope.rating = "Choose a rating";
     $scope.ratingVal = 0;
+    $scope.starRatings = [1,2,3,4,5];
     $scope.UserRating = 0;
     $scope.sliderVisible = false;
     $scope.minCostSlider = {

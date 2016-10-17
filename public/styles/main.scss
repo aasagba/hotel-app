@@ -3,15 +3,26 @@ $secondary-color: black;
 $header-primary: white;
 $header-secondary: #aebac8;
 
+body {
+  color: black;
+
 .jumbotron {
-  padding-top: 20px;
-  padding-bottom: 30px;
+  padding-top: 10px;
+  padding-bottom: 20px;
+  background-color: #d3d3d3;
   .header {
     clear: both;
     left: 50%;
     top:50%;
     color:#005EB8;
     text-align: center;
+    .sort-label {
+      margin-right: 5px;
+    }
+    .sort {
+      width: 145px;
+      height: auto;
+    }
     h1 {
       font-size: 30px;
     }
@@ -43,9 +54,28 @@ $header-secondary: #aebac8;
   float: left;
   width: 300px;
   .filter {
+    background-color: #eeeeee;
+    .filter-header {
+      color: $header-primary;
+      background-color: #005EB8;
+      padding: 15px 10px;
+      font-size: 16px;
+    }
     .filter-body {
       .filter-item {
+        .filter-item-heading {
+          color: $header-primary;
+          background-color: lightgray;
+          font-size: 16px;
+          padding: 15px 10px;
+
+        }
         .filter-item-body {
+          padding: 15px 10px;
+          .search-name {
+            width: 100%;
+            font-size: 14px;
+          }
           .star-rating {
             .star {
               padding: 1px;
@@ -67,16 +97,14 @@ $header-secondary: #aebac8;
             .rating-star {
               display: block;
               float: right;
-              width: 16px;
-              height: 16px;
+              font-size:28px;
+              margin-right: 4px;
             }
             .rating-star:hover,
             .rating-star:hover ~ .rating-star {
               background-position: 0 0;
             }
-            .filled {
-              color: #fd0;
-            }
+
           }
         }
       }
@@ -87,18 +115,25 @@ $header-secondary: #aebac8;
   float: left;
   .hotel-listing {
     border: none;
-    margin-bottom: 0px;
+    margin-bottom: 18px;
+    background-color: #f9f9f9;
     img {
       width: 197px;
       height: 169px;
       display: block;
       margin-right: 15px;
     }
+    .thumbnail { margin-bottom: 0;}
     .info {
-      /*padding: 0 9px;*/
-      width: 50%;
-      /*padding: 16px 12px;*/
+      width: 55%;
       position: relative;
+      h4 {
+        color: #005EB8;
+      }
+      .location {
+        color:#b1acac;
+        font-size: 14px;
+      }
       .user-rating{
         .rating, .user-rating-title{
           font-size: 18px;
@@ -107,26 +142,32 @@ $header-secondary: #aebac8;
     }
     .cost {
       vertical-align: bottom;
-      width: 22%;
-      padding: 16px 12px;
+      width: 20%;
+      .price-label {
+        font-size: 12px;
+      }
       .price {
         font-size: 30px;
+        color: darkorange;
       }
     }
     .section {
-      display: table-cell;
+      display: inline-block;
       vertical-align: top;
       height: 100%;
+      padding-top: 10px;
     }
   }
+}
+
+.filled {
+  color: #fd0;
 }
 
 
 
 
-
-
-
+}
 
 
 
