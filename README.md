@@ -28,7 +28,7 @@ Then install the Node modules with
 
 The demo is also hosted on Heroku here
 
-https://movie-app-omdb.herokuapp.com/
+https://demo-hotels-app.herokuapp.com/
 
 ### Who do I talk to?
 
