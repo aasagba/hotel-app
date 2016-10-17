@@ -8,18 +8,15 @@ var fs = require('fs'),
 // set the static files location
 app.use(express.static(__dirname + "/public"));
 
+// get route to load data and return to front end route
 app.get('/hotels', function (req, res) {
     fs.readFile(__dirname + '/hotels.json', handleFile);
 
     function handleFile(err, data) {
         if (err) throw err
         obj = JSON.parse(data)
-
-        //console.log(JSON.stringify(obj));
         res.json(obj);
     }
-
-
 });
 
 app.listen(process.env.PORT || 8082);

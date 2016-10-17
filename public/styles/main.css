@@ -14,7 +14,8 @@ body {
         margin-right: 5px; }
       body .jumbotron .header .sort {
         width: 145px;
-        height: auto; }
+        height: auto;
+        width: auto; }
       body .jumbotron .header h1 {
         font-size: 30px; }
       body .jumbotron .header h2 {
@@ -51,31 +52,36 @@ body {
         padding: 15px 10px; }
       body .side .filter .filter-body .filter-item .filter-item-body {
         padding: 15px 10px; }
+        body .side .filter .filter-body .filter-item .filter-item-body .rating-message {
+          clear: both; }
         body .side .filter .filter-body .filter-item .filter-item-body .search-name {
           width: 100%;
           font-size: 14px; }
-        body .side .filter .filter-body .filter-item .filter-item-body .star-rating .star {
-          padding: 1px;
-          color: #ddd;
-          font-size: 20px;
-          text-shadow: .05em .05em #aaa;
-          list-style-type: none;
-          display: inline-block;
-          cursor: pointer; }
-          body .side .filter .filter-body .filter-item .filter-item-body .star-rating .star .filled {
-            color: #fd0; }
-        body .side .filter .filter-body .filter-item .filter-item-body .star-rating .rating-input {
-          position: absolute;
-          left: 0;
-          top: -500px; }
-        body .side .filter .filter-body .filter-item .filter-item-body .star-rating .rating-star {
-          display: block;
-          float: right;
-          font-size: 28px;
-          margin-right: 4px; }
-        body .side .filter .filter-body .filter-item .filter-item-body .star-rating .rating-star:hover,
-        body .side .filter .filter-body .filter-item .filter-item-body .star-rating .rating-star:hover ~ .rating-star {
-          background-position: 0 0; }
+        body .side .filter .filter-body .filter-item .filter-item-body .star-container {
+          clear: both;
+          float: left; }
+          body .side .filter .filter-body .filter-item .filter-item-body .star-container .star-rating .star {
+            padding: 1px;
+            color: #ddd;
+            font-size: 20px;
+            text-shadow: .05em .05em #aaa;
+            list-style-type: none;
+            display: inline-block;
+            cursor: pointer; }
+            body .side .filter .filter-body .filter-item .filter-item-body .star-container .star-rating .star .filled {
+              color: #fd0; }
+          body .side .filter .filter-body .filter-item .filter-item-body .star-container .star-rating .rating-input {
+            position: absolute;
+            left: 0;
+            top: -500px; }
+          body .side .filter .filter-body .filter-item .filter-item-body .star-container .star-rating .rating-star {
+            display: block;
+            float: right;
+            font-size: 28px;
+            margin-right: 4px; }
+          body .side .filter .filter-body .filter-item .filter-item-body .star-container .star-rating .rating-star:hover,
+          body .side .filter .filter-body .filter-item .filter-item-body .star-container .star-rating .rating-star:hover ~ .rating-star {
+            background-position: 0 0; }
   body .main {
     float: left; }
     body .main .hotel-listing {

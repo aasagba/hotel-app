@@ -22,6 +22,7 @@ body {
     .sort {
       width: 145px;
       height: auto;
+      width:auto;
     }
     h1 {
       font-size: 30px;
@@ -72,39 +73,46 @@ body {
         }
         .filter-item-body {
           padding: 15px 10px;
+          .rating-message {
+            clear:both;
+          }
           .search-name {
             width: 100%;
             font-size: 14px;
           }
-          .star-rating {
-            .star {
-              padding: 1px;
-              color: #ddd;
-              font-size: 20px;
-              text-shadow: .05em .05em #aaa;
-              list-style-type: none;
-              display: inline-block;
-              cursor: pointer;
-              .filled {
-                color: #fd0;
+          .star-container {
+            clear:both;
+            float:left;
+            .star-rating {
+              .star {
+                padding: 1px;
+                color: #ddd;
+                font-size: 20px;
+                text-shadow: .05em .05em #aaa;
+                list-style-type: none;
+                display: inline-block;
+                cursor: pointer;
+                .filled {
+                  color: #fd0;
+                }
               }
-            }
-            .rating-input {
-              position: absolute;
-              left: 0;
-              top: -500px;
-            }
-            .rating-star {
-              display: block;
-              float: right;
-              font-size:28px;
-              margin-right: 4px;
-            }
-            .rating-star:hover,
-            .rating-star:hover ~ .rating-star {
-              background-position: 0 0;
-            }
+              .rating-input {
+                position: absolute;
+                left: 0;
+                top: -500px;
+              }
+              .rating-star {
+                display: block;
+                float: right;
+                font-size:28px;
+                margin-right: 4px;
+              }
+              .rating-star:hover,
+              .rating-star:hover ~ .rating-star {
+                background-position: 0 0;
+              }
 
+            }
           }
         }
       }

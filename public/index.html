@@ -12,15 +12,13 @@
 </head>
 <body>
     <div id="app" ng-controller="AppCtrl">
-
-
         <div class="jumbotron">
             <div class="container text-center">
                 <div class="header">
                     <h1>Hotels in Paris</h1>
                     <h2 ng-if="resultsCount > 0">{{resultsCount}} hotels found</h2>
                     <span class="sort-label">Sort By</span>
-                    <select style="width:auto" class="form-control sort" ng-model="sortBy">
+                    <select class="form-control sort" ng-model="sortBy">
                         <option value="None">-- Select --</option>
                         <option value="Distance">Distance</option>
                         <option value="Stars">Stars</option>
@@ -28,9 +26,6 @@
                         <option value="TrpRating">TrpRating</option>
                         <option value="UserRating">UserRating</option>
                     </select>
-                    <!--<div class="search col-sm-6">
-                        <input type="submit" class="corner" value="submit" ng-click="getHotels()">
-                    </div>-->
                 </div>
             </div>
         </div>
@@ -44,25 +39,23 @@
                         <div class="filter-item">
                             <div class="filter-item-heading">Star Rating</div>
                             <div class="filter-item-body">
-
-                                <div style="clear:both;float:left">
-                                <span class="star-rating">
-                                  <input class="star rating-input" type="radio" id="rating5" name="rating5" value="5" data-ng-model="ratingVal" ng-click="rating = ratingVal + ' stars'"><i></i>
-                                    <label for="rating5" class="rating-star fa fa-star" ng-class="{filled: ratingVal >= 5}"></label>
-                                    <input class="star rating-input" type="radio" id="rating4" name="rating4" value="4" data-ng-model="ratingVal" ng-click="rating = ratingVal + ' stars'"><i></i>
-                                    <label for="rating4" class="rating-star fa fa-star" ng-class="{filled: ratingVal >= 4}"></label>
-                                    <input class="star rating-input" type="radio" id="rating3" name="rating3" value="3" data-ng-model="ratingVal" ng-click="rating = ratingVal + ' stars'"><i></i>
-                                    <label for="rating3" class="rating-star fa fa-star" ng-class="{filled: ratingVal >= 3}"></label>
-                                    <input class="star rating-input" type="radio" id="rating2" name="rating2" value="2" data-ng-model="ratingVal" ng-click="rating = ratingVal + ' stars'"><i></i>
-                                    <label for="rating2" class="rating-star fa fa-star" ng-class="{filled: ratingVal >= 2}"></label>
-                                    <input class="star rating-input" type="radio" id="rating1" name="rating1" value="1" data-ng-model="ratingVal" ng-click="rating = ratingVal + ' stars'"><i></i>
-                                    <label for="rating1" class="rating-star fa fa-star" ng-class="{filled: ratingVal >= 1}"></label>
-                                    <input class="star rating-input" type="radio" id="rating0" name="rating0" value="0" data-ng-model="ratingVal" ng-click="rating = 'No stars'"><i></i>
-                                    <label for="rating0" class="rating-star fa fa-star" ng-class="{filled: ratingVal >= 0}"></label>
-                                </span>
+                                <div class="star-container">
+                                    <span class="star-rating">
+                                      <input class="star rating-input" type="radio" id="rating5" name="rating5" value="5" data-ng-model="ratingVal" ng-click="rating = ratingVal + ' stars'"><i></i>
+                                        <label for="rating5" class="rating-star fa fa-star" ng-class="{filled: ratingVal >= 5}"></label>
+                                        <input class="star rating-input" type="radio" id="rating4" name="rating4" value="4" data-ng-model="ratingVal" ng-click="rating = ratingVal + ' stars'"><i></i>
+                                        <label for="rating4" class="rating-star fa fa-star" ng-class="{filled: ratingVal >= 4}"></label>
+                                        <input class="star rating-input" type="radio" id="rating3" name="rating3" value="3" data-ng-model="ratingVal" ng-click="rating = ratingVal + ' stars'"><i></i>
+                                        <label for="rating3" class="rating-star fa fa-star" ng-class="{filled: ratingVal >= 3}"></label>
+                                        <input class="star rating-input" type="radio" id="rating2" name="rating2" value="2" data-ng-model="ratingVal" ng-click="rating = ratingVal + ' stars'"><i></i>
+                                        <label for="rating2" class="rating-star fa fa-star" ng-class="{filled: ratingVal >= 2}"></label>
+                                        <input class="star rating-input" type="radio" id="rating1" name="rating1" value="1" data-ng-model="ratingVal" ng-click="rating = ratingVal + ' stars'"><i></i>
+                                        <label for="rating1" class="rating-star fa fa-star" ng-class="{filled: ratingVal >= 1}"></label>
+                                        <input class="star rating-input" type="radio" id="rating0" name="rating0" value="0" data-ng-model="ratingVal" ng-click="rating = 'No stars'"><i></i>
+                                        <label for="rating0" class="rating-star fa fa-star" ng-class="{filled: ratingVal >= 0}"></label>
+                                    </span>
                                 </div>
-
-                                <div style="clear:both;"><strong class="choice">{{rating}}</strong></div>
+                                <div class="rating-message"><strong class="choice">{{rating}}</strong></div>
                             </div>
                         </div>
                         <div class="filter-item">
@@ -92,7 +85,7 @@
             </div>
             <div class="main col-sm-9">
                 <div class="row">
-                    <div class="hotel-listing clearfix " dir-paginate="hotel in results | filter:search | orderBy:sortBy | itemsPerPage: 10">
+                    <div class="hotel-listing clearfix " dir-paginate="hotel in results | filter:filter | orderBy:sortBy | itemsPerPage: 10">
                         <img src="{{hotel.ImageUrl}}" class="img-responsive pull-left thumbnail" alt="Image">
                         <div class="section info">
                             <div>
@@ -107,7 +100,6 @@
                                     <span class="review-count" ng-if="hotel.UserRatingCount > 1">({{hotel.UserRatingCount}} reviews)</span>
                                 </a>
                             </div>
-                            <!--<p class="">{{hotel.Distance}}</p>-->
                         </div>
                         <div class="section cost">
                             <div class="price-label">From</div>
@@ -122,7 +114,6 @@
             </div>
         </div>
     </div>
-
     <script src="scripts/jquery/dist/jquery.min.js"></script>
     <script src="scripts/angular/angular.min.js"></script>
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular-animate.js"></script>
@@ -130,7 +121,6 @@
     <script src="scripts/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
     <script src="scripts/angularUtils-pagination/dirPagination.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angularjs-slider/5.7.0/rzslider.min.js"></script>
-
     <script src="controllers/controller.js"></script>
 </body>
 </html>
