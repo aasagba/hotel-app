@@ -30,7 +30,7 @@
             </div>
         </div>
         <div class="container-fluid">
-            <div class="side col-sm-3">
+            <div class="side col-xs-3">
                 <div class="filter">
                     <div class="filter-header">
                         FILTER BY
@@ -83,9 +83,9 @@
                     </div>
                 </div>
             </div>
-            <div class="main col-sm-9">
-                <div class="row">
-                    <div class="hotel-listing clearfix " dir-paginate="hotel in results | filter:filter | orderBy:sortBy | itemsPerPage: 10">
+            <div class="main col-xs-9">
+                <div class="">
+                    <div class="hotel-listing clearfix row" dir-paginate="hotel in results | filter:filter | orderBy:sortBy | itemsPerPage: 10">
                         <img src="{{hotel.ImageUrl}}" class="img-responsive pull-left thumbnail" alt="Image">
                         <div class="section info">
                             <div>
