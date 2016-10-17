@@ -84,18 +84,9 @@
                             <div class="filter-item-heading">Customer Rating</div>
                             <div class="filter-item-body">
                                 <p><strong class="choice">At least {{UserRating}}</strong></p>
-                                <span class="star-rating">
-                                  <input type="radio" name="UserRating" value="1" data-ng-model="UserRating" ng-click="UserRating = 1"><i></i>
-                                  <input type="radio" name="UserRating" value="2" data-ng-model="UserRating" ng-click="UserRating = 2"><i></i>
-                                  <input type="radio" name="UserRating" value="3" data-ng-model="UserRating" ng-click="UserRating = 3"><i></i>
-                                  <input type="radio" name="UserRating" value="4" data-ng-model="UserRating" ng-click="UserRating = 4"><i></i>
-                                  <input type="radio" name="UserRating" value="5" data-ng-model="UserRating" ng-click="UserRating = 5"><i></i>
-                                  <input type="radio" name="UserRating" value="5" data-ng-model="UserRating" ng-click="UserRating = 6"><i></i>
-                                  <input type="radio" name="UserRating" value="5" data-ng-model="UserRating" ng-click="UserRating = 7"><i></i>
-                                  <input type="radio" name="UserRating" value="5" data-ng-model="UserRating" ng-click="UserRating = 8"><i></i>
-                                  <input type="radio" name="UserRating" value="5" data-ng-model="UserRating" ng-click="UserRating = 9"><i></i>
-                                  <input type="radio" name="UserRating" value="5" data-ng-model="UserRating" ng-click="UserRating = 10"><i></i>
-                                </span>
+                                <div ng-show="sliderVisible">
+                                    <rzslider rz-slider-model="minUserRating.value" rz-slider-options="minUserRating.options"></rzslider>
+                                </div>
                             </div>
                         </div>
                         <div class="filter-item" ng-show="sliderVisible">

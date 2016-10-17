@@ -17,6 +17,13 @@ myApp.controller('AppCtrl', ['$scope', '$http', '$timeout', function($scope, $ht
             ceil: 500
         }
     };
+    $scope.minUserRating = {
+        value: 0,
+        options: {
+            floor: 0,
+            ceil: 10
+        }
+    };
 
     $scope.refreshSlider = function () {
         $timeout(function () {
@@ -33,6 +40,8 @@ myApp.controller('AppCtrl', ['$scope', '$http', '$timeout', function($scope, $ht
             $scope.minCostSlider.options.ceil = findmax($scope.results);
             $scope.refreshSlider();
             $scope.sliderVisible = true;
+
+
         });
     }
     $scope.getHotels();
@@ -62,7 +71,7 @@ myApp.controller('AppCtrl', ['$scope', '$http', '$timeout', function($scope, $ht
        //console.log("mincost less equal to slider: " + row.MinCost <= $scope.minCostSlider.value);
         return (($scope.ratingVal == "" || row.Stars == ($scope.ratingVal || '')) &&
                 ($scope.query == "" || row.Name.includes($scope.query || '')) &&
-                ($scope.UserRating == 0 || row.UserRating >= $scope.UserRating) &&
+                ($scope.minUserRating.value == 0 || row.UserRating >= $scope.minUserRating.value) &&
                 ($scope.minCostSlider.value == 0 || row.MinCost >= $scope.minCostSlider.value));
     };
 
@@ -72,10 +81,8 @@ myApp.controller('AppCtrl', ['$scope', '$http', '$timeout', function($scope, $ht
             a = array.length,
             counter
 
-        for (counter=0;counter<a;counter++)
-        {
-            if (array[counter].MinCost > max)
-            {
+        for (counter=0;counter<a;counter++) {
+            if (array[counter].MinCost > max) {
                 max = array[counter].MinCost
             }
         }
