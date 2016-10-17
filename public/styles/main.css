@@ -30,34 +30,57 @@
 .side {
   float: left;
   width: 300px; }
+  .side .filter .filter-body .filter-item .filter-item-body .star-rating .star {
+    padding: 1px;
+    color: #ddd;
+    font-size: 20px;
+    text-shadow: .05em .05em #aaa;
+    list-style-type: none;
+    display: inline-block;
+    cursor: pointer; }
+    .side .filter .filter-body .filter-item .filter-item-body .star-rating .star .filled {
+      color: #fd0; }
+  .side .filter .filter-body .filter-item .filter-item-body .star-rating .rating-input {
+    position: absolute;
+    left: 0;
+    top: -500px; }
+  .side .filter .filter-body .filter-item .filter-item-body .star-rating .rating-star {
+    display: block;
+    float: right;
+    width: 16px;
+    height: 16px; }
+  .side .filter .filter-body .filter-item .filter-item-body .star-rating .rating-star:hover,
+  .side .filter .filter-body .filter-item .filter-item-body .star-rating .rating-star:hover ~ .rating-star {
+    background-position: 0 0; }
+  .side .filter .filter-body .filter-item .filter-item-body .star-rating .filled {
+    color: #fd0; }
 
 .main {
   float: left; }
-
-.hotel-listing {
-  border: none;
-  margin-bottom: 0px; }
-  .hotel-listing img {
-    width: 197px;
-    height: 169px;
-    display: block;
-    margin-right: 15px; }
-  .hotel-listing .info {
-    /*padding: 0 9px;*/
-    width: 50%;
-    /*padding: 16px 12px;*/
-    position: relative; }
-    .hotel-listing .info .user-rating .rating, .hotel-listing .info .user-rating .user-rating-title {
-      font-size: 18px; }
-  .hotel-listing .cost {
-    vertical-align: bottom;
-    width: 22%;
-    padding: 16px 12px; }
-    .hotel-listing .cost .price {
-      font-size: 30px; }
-  .hotel-listing .section {
-    display: table-cell;
-    vertical-align: top;
-    height: 100%; }
+  .main .hotel-listing {
+    border: none;
+    margin-bottom: 0px; }
+    .main .hotel-listing img {
+      width: 197px;
+      height: 169px;
+      display: block;
+      margin-right: 15px; }
+    .main .hotel-listing .info {
+      /*padding: 0 9px;*/
+      width: 50%;
+      /*padding: 16px 12px;*/
+      position: relative; }
+      .main .hotel-listing .info .user-rating .rating, .main .hotel-listing .info .user-rating .user-rating-title {
+        font-size: 18px; }
+    .main .hotel-listing .cost {
+      vertical-align: bottom;
+      width: 22%;
+      padding: 16px 12px; }
+      .main .hotel-listing .cost .price {
+        font-size: 30px; }
+    .main .hotel-listing .section {
+      display: table-cell;
+      vertical-align: top;
+      height: 100%; }
 
 /*# sourceMappingURL=main.css.map */

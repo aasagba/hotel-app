@@ -14,8 +14,8 @@ app.get('/hotels', function (req, res) {
     function handleFile(err, data) {
         if (err) throw err
         obj = JSON.parse(data)
-        // You can now play with your datas
-        console.log(JSON.stringify(obj));
+
+        //console.log(JSON.stringify(obj));
         res.json(obj);
     }
 

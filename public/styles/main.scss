@@ -42,44 +42,93 @@ $header-secondary: #aebac8;
 .side{
   float: left;
   width: 300px;
-}
-.main {
-  float: left;
-}
-.hotel-listing {
-  border: none;
-  margin-bottom: 0px;
-  img {
-    width: 197px;
-    height: 169px;
-    display: block;
-    margin-right: 15px;
-  }
-  .info {
-    /*padding: 0 9px;*/
-    width: 50%;
-    /*padding: 16px 12px;*/
-    position: relative;
-    .user-rating{
-      .rating, .user-rating-title{
-        font-size: 18px;
+  .filter {
+    .filter-body {
+      .filter-item {
+        .filter-item-body {
+          .star-rating {
+            .star {
+              padding: 1px;
+              color: #ddd;
+              font-size: 20px;
+              text-shadow: .05em .05em #aaa;
+              list-style-type: none;
+              display: inline-block;
+              cursor: pointer;
+              .filled {
+                color: #fd0;
+              }
+            }
+            .rating-input {
+              position: absolute;
+              left: 0;
+              top: -500px;
+            }
+            .rating-star {
+              display: block;
+              float: right;
+              width: 16px;
+              height: 16px;
+            }
+            .rating-star:hover,
+            .rating-star:hover ~ .rating-star {
+              background-position: 0 0;
+            }
+            .filled {
+              color: #fd0;
+            }
+          }
+        }
       }
     }
   }
-  .cost {
-    vertical-align: bottom;
-    width: 22%;
-    padding: 16px 12px;
-    .price {
-      font-size: 30px;
+}
+.main {
+  float: left;
+  .hotel-listing {
+    border: none;
+    margin-bottom: 0px;
+    img {
+      width: 197px;
+      height: 169px;
+      display: block;
+      margin-right: 15px;
+    }
+    .info {
+      /*padding: 0 9px;*/
+      width: 50%;
+      /*padding: 16px 12px;*/
+      position: relative;
+      .user-rating{
+        .rating, .user-rating-title{
+          font-size: 18px;
+        }
+      }
+    }
+    .cost {
+      vertical-align: bottom;
+      width: 22%;
+      padding: 16px 12px;
+      .price {
+        font-size: 30px;
+      }
+    }
+    .section {
+      display: table-cell;
+      vertical-align: top;
+      height: 100%;
     }
   }
-  .section {
-    display: table-cell;
-    vertical-align: top;
-    height: 100%;
-  }
 }
+
+
+
+
+
+
+
+
+
 
 
 

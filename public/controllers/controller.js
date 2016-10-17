@@ -1,19 +1,38 @@
-var myApp = angular.module('myApp',['angularUtils.directives.dirPagination']);
+var myApp = angular.module('myApp',['angularUtils.directives.dirPagination','rzModule']);
 
-myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
+myApp.controller('AppCtrl', ['$scope', '$http', '$timeout', function($scope, $http, $timeout) {
     console.log("AppCtrl initialised");
     $scope.results = [];
     $scope.resultsCount = 0;
     $scope.filterBy = {field: "Title"};
     $scope.query = "";
     $scope.rating = "Choose a rating";
-    $scope.ratingVal = "";
+    $scope.ratingVal = 0;
+    $scope.UserRating = 0;
+    $scope.sliderVisible = false;
+    $scope.minCostSlider = {
+        value: 0,
+        options: {
+            floor: 0,
+            ceil: 500
+        }
+    };
+
+    $scope.refreshSlider = function () {
+        $timeout(function () {
+            $scope.$broadcast('rzSliderForceRender');
+        });
+    };
 
     $scope.getHotels = function () {
         $http.get('/hotels').success(function(response) {
             console.log(response);
             $scope.results = response.Establishments;
             $scope.resultsCount = $scope.results.length;
+
+            $scope.minCostSlider.options.ceil = findmax($scope.results);
+            $scope.refreshSlider();
+            $scope.sliderVisible = true;
         });
     }
     $scope.getHotels();
@@ -38,8 +57,28 @@ myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
        // console.log("$scope.ratingVal: "+$scope.ratingVal);
         //console.log("row.Stars: " + row.Stars);
         //console.log(row.Stars == ($scope.ratingVal || ''));
-
+        //console.log("row.MinCost: " + row.MinCost + ", slider: " +  $scope.minCostSlider.value);
+        //console.log("type: " + typeof row.MinCost);
+       //console.log("mincost less equal to slider: " + row.MinCost <= $scope.minCostSlider.value);
         return (($scope.ratingVal == "" || row.Stars == ($scope.ratingVal || '')) &&
-        ($scope.query == "" || row.Name.includes($scope.query || '')));
+                ($scope.query == "" || row.Name.includes($scope.query || '')) &&
+                ($scope.UserRating == 0 || row.UserRating >= $scope.UserRating) &&
+                ($scope.minCostSlider.value == 0 || row.MinCost >= $scope.minCostSlider.value));
     };
+
+    function findmax(array)
+    {
+        var max = 0,
+            a = array.length,
+            counter
+
+        for (counter=0;counter<a;counter++)
+        {
+            if (array[counter].MinCost > max)
+            {
+                max = array[counter].MinCost
+            }
+        }
+        return max
+    }
 }]);
