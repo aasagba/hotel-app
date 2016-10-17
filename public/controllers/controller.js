@@ -49,7 +49,7 @@ myApp.controller('AppCtrl', ['$scope', '$http', '$timeout', function($scope, $ht
 
     $scope.filter = function (row) {
         return (($scope.ratingVal == "" || row.Stars == ($scope.ratingVal || '')) &&
-                ($scope.query == "" || row.Name.includes($scope.query || '')) &&
+                ($scope.query.toLowerCase() == "" || row.Name.toLowerCase().includes($scope.query.toLowerCase() || '')) &&
                 ($scope.minUserRating.value == 0 || row.UserRating >= $scope.minUserRating.value) &&
                 ($scope.minCostSlider.value == 0 || row.MinCost >= $scope.minCostSlider.value));
     };
